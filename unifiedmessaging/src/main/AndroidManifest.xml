@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Unified Messaging: digabung ke dalam Kvaesitso (modul library). -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+
+    <queries>
+        <package android:name="com.whatsapp" />
+        <package android:name="com.whatsapp.w4b" />
+        <package android:name="org.telegram.messenger" />
+        <package android:name="org.telegram.messenger.web" />
+        <package android:name="org.thunderdog.challegram" />
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme="whatsapp" />
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data android:scheme="tg" />
+        </intent>
+    </queries>
+
+    <application>
+
+        <!-- Pencarian kontak (plugin SDK) -->
+        <provider
+            android:name="id.kvplugin.unifiedmsg.UnifiedMessagingPlugin"
+            android:authorities="${applicationId}.unifiedmsg.chats"
+            android:exported="true"
+            android:icon="@drawable/um_ic_plugin"
+            android:label="@string/um_plugin_label">
+            <intent-filter>
+                <action android:name="de.mm20.launcher2.action.PLUGIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <meta-data
+                android:name="de.mm20.launcher2.plugin.description"
+                android:value="@string/um_plugin_description" />
+        </provider>
+
+        <!-- Membaca notifikasi WhatsApp/Telegram -->
+        <service
+            android:name="id.kvplugin.unifiedmsg.MessageListenerService"
+            android:exported="true"
+            android:label="@string/um_listener_label"
+            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
+            <intent-filter>
+                <action android:name="android.service.notification.NotificationListenerService" />
+            </intent-filter>
+        </service>
+
+        <!-- Penyedia Feed (usap kanan) – sekarang di dalam Kvaesitso sendiri -->
+        <service
+            android:name="id.kvplugin.unifiedmsg.overlay.OverlayService"
+            android:exported="true"
+            android:label="@string/um_overlay_label">
+            <intent-filter>
+                <action android:name="com.android.launcher3.WINDOW_OVERLAY" />
+                <data android:scheme="app" />
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name="id.kvplugin.unifiedmsg.SetupActivity"
+            android:exported="false"
+            android:label="@string/um_settings"
+            android:taskAffinity="${applicationId}.unifiedmsg"
+            android:theme="@style/um_SetupTheme" />
+
+        <!-- Panel sebagai aplikasi biasa (cadangan, mis. untuk gestur "buka aplikasi") -->
+        <activity
+            android:name="id.kvplugin.unifiedmsg.ui.ConversationsActivity"
+            android:exported="true"
+            android:icon="@drawable/um_ic_plugin"
+            android:label="@string/um_conversations_title"
+            android:launchMode="singleTask"
+            android:taskAffinity="${applicationId}.unifiedmsg.conversations"
+            android:theme="@style/um_ConversationsTheme"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Trampoline hasil pencarian: kvmsg://open?key=…  /  kvmsg://number?d=… -->
+        <activity
+            android:name="id.kvplugin.unifiedmsg.OpenChatActivity"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:noHistory="true"
+            android:taskAffinity=""
+            android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="kvmsg" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>

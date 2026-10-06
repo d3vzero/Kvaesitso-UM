@@ -164,6 +164,7 @@ dependencies {
     implementation(project(":services:plugins"))
     implementation(project(":core:devicepose"))
     implementation(project(":services:feed"))
+    implementation(project(":unifiedmessaging"))
 
     // Uncomment this if you want annoying notifications in your debug builds
     //debugImplementation(libs.leakcanary)

@@ -1,0 +1,103 @@
+<resources>
+    <string name="um_app_name">Unified Messaging</string>
+    <string name="um_plugin_package_label">Unified Messaging</string>
+    <string name="um_plugin_package_description">Search WhatsApp and Telegram chats right from the Kvaesitso search.</string>
+    <string name="um_plugin_label">WhatsApp &amp; Telegram chats</string>
+    <string name="um_plugin_description">Shows WhatsApp and Telegram chats as contact search results.</string>
+    <string name="um_listener_label">Unified Messaging – chat indexer</string>
+
+    <string name="um_setup_required_message">Allow notification access so WhatsApp and Telegram chats can be indexed.</string>
+    <string name="um_state_ready">%1$d chats indexed from WhatsApp &amp; Telegram</string>
+
+    <string name="um_action_whatsapp">WhatsApp %1$s</string>
+    <string name="um_action_whatsapp_business">WhatsApp Business %1$s</string>
+    <string name="um_action_telegram">Telegram %1$s</string>
+    <string name="um_tg_username_name">%1$s (Telegram)</string>
+
+    <string name="um_setup_title">Unified Messaging for Kvaesitso</string>
+    <string name="um_setup_intro">WhatsApp and Telegram chats are read from incoming notifications. All messages stay on this phone.</string>
+    <string name="um_status_notif_ok">✅ Notification access: enabled</string>
+    <string name="um_status_notif_missing">❌ Notification access: not allowed</string>
+    <string name="um_status_contacts_ok">✅ Contacts access: enabled</string>
+    <string name="um_status_contacts_missing">⚪ Contacts access: disabled (optional)</string>
+    <string name="um_status_count">Indexed chats: %1$d</string>
+    <string name="um_btn_notif">Open notification access settings</string>
+    <string name="um_btn_contacts">Allow contacts access</string>
+    <string name="um_country_code_label">Default country code (for numbers starting with 0)</string>
+    <string name="um_btn_save">Save</string>
+    <string name="um_btn_clear">Delete all indexed chat data</string>
+    <string name="um_saved">Saved</string>
+    <string name="um_cleared">Chat data deleted</string>
+    <string name="um_restricted_hint">Android 13+: if notification access can\'t be enabled (greyed out), open App info → ⋮ menu → \"Allow restricted settings\", then try again.</string>
+    <string name="um_fallback_open_app">This chat is no longer in your notifications, opening the app…</string>
+
+    <!-- Conversations panel -->
+    <string name="um_conversations_title">Conversations</string>
+    <string name="um_overlay_label">Conversations (Unified Messaging)</string>
+    <string name="um_settings">Settings</string>
+    <string name="um_complete_setup">Complete conversations setup</string>
+    <string name="um_empty_no_chats">No chats yet. WhatsApp and Telegram chats will show up here once a notification arrives.</string>
+    <string name="um_empty_no_match">No matching conversations.</string>
+    <string name="um_filter_unread">Unread</string>
+    <string name="um_filter_individual">Personal</string>
+    <string name="um_filter_group">Group</string>
+    <string name="um_filter_whatsapp">WhatsApp</string>
+    <string name="um_filter_telegram">Telegram</string>
+    <string name="um_search_hint">Search</string>
+    <string name="um_clear">Clear</string>
+    <string name="um_you">You</string>
+    <string name="um_back">Back</string>
+    <string name="um_mark_read">Mark as read</string>
+    <string name="um_open_in_app">Open</string>
+    <string name="um_open_in">Open in %1$s</string>
+    <string name="um_reply_hint">Write a reply…</string>
+    <string name="um_send">Send</string>
+    <string name="um_reply_failed">Couldn\'t send. The reply action is no longer valid.</string>
+    <string name="um_reply_unavailable">Direct reply is only available while this chat\'s notification exists.</string>
+    <string name="um_reply_checking">Checking notifications…</string>
+    <string name="um_reply_unavailable_listener">Notification access is off or reconnecting. Open Settings and check notification access.</string>
+    <string name="um_reply_unavailable_no_action">This chat\'s notification exists, but the app doesn\'t offer a Reply button (e.g. Telegram with a passcode lock).</string>
+    <string name="um_reply_stale_hint">The notification is gone – replies are sent through the last saved reply action.</string>
+    <string name="um_media_open_in_app">Tap to open in the app</string>
+
+    <!-- Settings screen -->
+    <string name="um_section_permissions">Permissions</string>
+    <string name="um_section_kvaesitso">Set up in Kvaesitso</string>
+    <string name="um_section_phone">Phone numbers</string>
+    <string name="um_section_data">Data</string>
+    <string name="um_perm_notif_title">Notification access</string>
+    <string name="um_perm_notif_ok">Enabled – new chats are added automatically</string>
+    <string name="um_perm_notif_missing">Required to read and reply to chats</string>
+    <string name="um_perm_contacts_title">Contacts access</string>
+    <string name="um_perm_contacts_sub">Optional – matches chat names to phone numbers</string>
+    <string name="um_perm_battery_title">Unrestricted battery</string>
+    <string name="um_perm_battery_sub">Keeps direct reply working longer. Also turn off \"Background app management\" if your phone has it.</string>
+    <string name="um_perm_battery_ok">Enabled – the system won\'t kill the app</string>
+    <string name="um_action_enable">Enable</string>
+    <string name="um_action_allow">Allow</string>
+    <string name="um_action_manage">Manage</string>
+    <string name="um_step_feed">Settings → Integrations → Feed → choose \"Conversations (Unified Messaging)\". Then Settings → Gestures → Swipe right → Feed.</string>
+    <string name="um_step_plugin">Optional, for search: Settings → Plugins → enable Unified Messaging (if listed)</string>
+    <string name="um_data_chats_title">Indexed chats</string>
+    <string name="um_data_chats_sub">Messages and photos are kept for up to 30 days</string>
+    <string name="um_clear_confirm_title">Delete all data?</string>
+    <string name="um_clear_confirm_text">All chats, messages and photos stored by this app will be deleted. Chats will fill up again from upcoming notifications.</string>
+    <string name="um_cancel">Cancel</string>
+    <string name="um_version_label">Unified Messaging %1$s</string>
+
+    <!-- Chat menu -->
+    <string name="um_more">More</string>
+    <string name="um_delete">Delete</string>
+    <string name="um_close">Close</string>
+    <string name="um_delete_chat">Delete conversation</string>
+    <string name="um_delete_chat_title">Delete \"%1$s\"?</string>
+    <string name="um_delete_chat_text">This chat\'s messages and photos will be removed from the panel. Your chat in WhatsApp/Telegram is not affected. The chat will reappear if a new message arrives.</string>
+    <string name="um_reply_info">Reply info</string>
+    <string name="um_reply_info_status">Direct reply</string>
+    <string name="um_reply_info_live">Available – the chat notification still exists</string>
+    <string name="um_reply_info_stale">Available – through the saved reply action</string>
+    <string name="um_reply_info_none">Not available – wait for a new message from this chat</string>
+    <string name="um_reply_info_types">What can be sent</string>
+    <string name="um_reply_info_text_only">Text only (stickers/images aren\'t supported by the app)</string>
+    <string name="um_reply_info_text_plus">Text + %1$s</string>
+</resources>
