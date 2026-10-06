@@ -253,7 +253,8 @@ internal class FeedConnectionImpl(
     }
 
     companion object {
-        private const val Flags = Context.BIND_AUTO_CREATE or Context.BIND_IMPORTANT
+        private val Flags = Context.BIND_AUTO_CREATE or Context.BIND_IMPORTANT or
+            (if (android.os.Build.VERSION.SDK_INT >= 34) Context.BIND_ALLOW_ACTIVITY_STARTS else 0)
         private const val MaxRetries = 5
     }
 
