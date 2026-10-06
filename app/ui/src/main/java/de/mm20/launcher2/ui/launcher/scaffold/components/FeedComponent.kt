@@ -43,6 +43,7 @@ internal object FeedComponent : ScaffoldComponent(), KoinComponent {
     private val feedService: FeedService by inject()
 
     override val survivesPause: Boolean = true
+    override val drawBackground: Boolean = false
 
     private var state = mutableIntStateOf(0)
 
