@@ -519,7 +519,12 @@ private fun ChatDetailScreen(host: PanelHost, ref: ChatRef, chat: ChatEntry?, ve
 
     Column(Modifier.fillMaxSize().systemBarsPadding().imePadding()) {
         Row(
-            Modifier.fillMaxWidth().padding(horizontal = 4.dp, vertical = 8.dp),
+            Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 8.dp, vertical = 8.dp)
+                .clip(RoundedCornerShape(16.dp))
+                .background(WidgetBg)
+                .padding(vertical = 4.dp),
             verticalAlignment = Alignment.CenterVertically,
         ) {
             IconButton(onClick = { host.state.selected = null }) {
@@ -528,7 +533,7 @@ private fun ChatDetailScreen(host: PanelHost, ref: ChatRef, chat: ChatEntry?, ve
             Column(Modifier.weight(1f)) {
                 Text(
                     chat?.title ?: ref.key,
-                    color = White, fontSize = 20.sp, fontWeight = FontWeight.Bold,
+                    color = White, fontSize = 17.sp, fontWeight = FontWeight.Bold,
                     maxLines = 1, overflow = TextOverflow.Ellipsis,
                 )
                 Text(
@@ -563,17 +568,30 @@ private fun ChatDetailScreen(host: PanelHost, ref: ChatRef, chat: ChatEntry?, ve
         }
 
         if (canReply) {
-            if (replyStatus == ReplyStatus.Stale) {
-                Text(
-                    stringResource(R.string.um_reply_stale_hint),
-                    color = Dim, fontSize = 12.sp,
-                    modifier = Modifier.padding(horizontal = 16.dp),
-                )
+            Column(
+                Modifier
+                    .fillMaxWidth()
+                    .padding(8.dp)
+                    .clip(RoundedCornerShape(16.dp))
+                    .background(WidgetBg)
+            ) {
+                if (replyStatus == ReplyStatus.Stale) {
+                    Text(
+                        stringResource(R.string.um_reply_stale_hint),
+                        color = Dim, fontSize = 12.sp,
+                        modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 10.dp),
+                    )
+                }
+                ReplyBar(draft, { draft = it }, focus, ::send)
             }
-            ReplyBar(draft, { draft = it }, focus, ::send)
         } else {
             Column(
-                Modifier.fillMaxWidth().padding(16.dp),
+                Modifier
+                    .fillMaxWidth()
+                    .padding(8.dp)
+                    .clip(RoundedCornerShape(16.dp))
+                    .background(WidgetBg)
+                    .padding(16.dp),
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
                 val reason = when (replyStatus) {
@@ -615,7 +633,7 @@ private fun Bubble(
                 .clip(shape)
                 .then(
                     if (m.outgoing) Modifier.background(White)
-                    else Modifier.background(CardBg).border(1.dp, Outline, shape)
+                    else Modifier.background(WidgetBg)
                 )
                 .then(if (mediaOnlyInApp) Modifier.clickable(onClick = onOpenInApp) else Modifier)
                 .padding(horizontal = 12.dp, vertical = 8.dp)
@@ -702,15 +720,14 @@ private fun ReplyBar(
 ) {
     val shape = RoundedCornerShape(24.dp)
     Row(
-        Modifier.fillMaxWidth().padding(12.dp),
+        Modifier.fillMaxWidth().padding(10.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Box(
             Modifier
                 .weight(1f)
                 .clip(shape)
-                .background(CardBg)
-                .border(1.dp, Outline, shape)
+                .background(AvatarBg)
                 .padding(horizontal = 18.dp, vertical = 14.dp)
         ) {
             if (value.isEmpty()) Text(stringResource(R.string.um_reply_hint), color = Dim, fontSize = 16.sp)
